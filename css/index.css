@@ -1,0 +1,14 @@
+@import url(./header.css);
+@import url(./section.css);
+
+:root {
+    --blue-prusia: #223A59;
+    --blue-carolina: #297AF1;
+    --blue-vaquero: #5FB5E7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;;
+}

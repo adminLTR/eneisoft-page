@@ -1,0 +1,25 @@
+.title {
+    font-size: 58px;
+    font-weight: 900;
+    background: radial-gradient(circle at center, var(--blue-vaquero) 0%, var(--blue-carolina) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: center;
+}
+
+.banner {
+    max-width: 752px;
+    margin: auto;
+}
+
+.social-media {
+    background-color: white;
+    border-radius: 50%;
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 20px;
+}
