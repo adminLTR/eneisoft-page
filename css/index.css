@@ -5,10 +5,25 @@
     --blue-prusia: #223A59;
     --blue-carolina: #297AF1;
     --blue-vaquero: #5FB5E7;
+    --gray: #555555;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;;
+}
+
+.text-gray {
+    color: var(--gray);
+}
+
+.scroll-hide::-webkit-scrollbar {
+    display: none;
+}
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+.scroll-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
