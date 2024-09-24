@@ -9,12 +9,14 @@
 }
 
 .banner {
-    max-width: 752px;
     margin: auto;
     background-image: url(../img/machuoicchu.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.max-container {
+    max-width: 752px;
 }
 
 .social-media {
