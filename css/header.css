@@ -24,3 +24,10 @@
 .navbar-nav a:hover::after, .navbar-nav a.active::after {
     transform: scaleX(1);
 }
+
+header {
+    position: sticky;
+    width: 100%;
+    top: 0;
+    background-color: black;
+}
