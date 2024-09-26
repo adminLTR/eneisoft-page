@@ -30,20 +30,13 @@
 
 .number-info {
     color: white;
-    font-size: 96px;
+    font-size: 64px;
     font-weight: bolder;
-    /* margin-bottom: .25rem; */
-}
-.number-info-sm {
-    font-size: 68px;
+    margin-bottom: .25rem;
 }
 
-.info-row p {
-    padding: 0;
-    margin: 0;
-}
 
-.info-row div {
-    margin-bottom: 1.5rem;
-    background: radial-gradient(circle, #2979f170 0%, rgb(0, 0, 0) 40%);
+.bg-shadow {
+    /* margin-bottom: 1.5rem; */
+    background: radial-gradient(ellipse, #2979f15f 0%, rgb(0, 0, 0) 50%);
 }
