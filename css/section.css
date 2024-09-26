@@ -13,11 +13,9 @@
     background-image: url(../img/machuoicchu.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-size: contain; */
 }
-.max-container {
-    max-width: 752px;
-}
+
 
 .social-media {
     background-color: white;
