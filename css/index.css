@@ -18,6 +18,9 @@
 .text-gray {
     color: var(--gray);
 }
+.text-blue-carolina {
+    color: var(--blue-carolina);
+}
 
 .bg-dark-soft {
     background-color: var(--dark-soft);
