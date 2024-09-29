@@ -1,6 +1,6 @@
 $(document).ready(function () {
     fillSpeakers(speakers);
-    fillAliados(aliados);
+    fillAliados(aliados_sponsors);
 });
 
 function fillSpeakers(speakers) {
@@ -30,16 +30,16 @@ function fillSpeakers(speakers) {
 }
 
 
-function fillAliados(aliados) {
-    aliados.forEach(aliado => {
-        $("#aliados-container").append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
+function fillAliados(aliados_sponsors) {
+    aliados_sponsors.forEach(element => {
+        $(`#${element.type}s-container`).append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
             <div class="text-center">
                 <h5 class="text-white d-flex justify-content-center align-items-center gap-4">
-                    ${aliado.logo}
-                    ${aliado.nombre}
+                    ${element.logo}
+                    ${element.nombre ?? ''}
                 </h5>
                 <p class="text-gray py-2 text-center">
-                    ${aliado.slogan}
+                    ${element.slogan}
                 </p>
             </div>
         </div>
