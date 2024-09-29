@@ -70,3 +70,7 @@ p, address{
     width: fit-content;
     border: 0;
 }
+
+h2{
+    font-size: 42px;
+}
