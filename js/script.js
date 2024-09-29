@@ -20,7 +20,7 @@ function fillSpeakers(speakers) {
                                     <i class="fa-brands fa-${social}"></i>
                                 </div>
                             </a>`
-                        })}
+                        }).toString().replace(/,/g, '')}
                     </div>
                 </div>
             </div>
