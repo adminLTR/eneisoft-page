@@ -1,5 +1,6 @@
 @import url(./header.css);
 @import url(./section.css);
+@import url(./footer.css);
 
 :root {
     --blue-prusia: #223A59;
@@ -14,7 +15,10 @@
     padding: 0;
     font-family: "Inter", sans-serif;;
 }
-
+p, address{
+    margin: 0;
+    padding: 0;
+}
 .text-gray {
     color: var(--gray);
 }
