@@ -32,7 +32,7 @@ function fillSpeakers(speakers) {
 
 function fillAliados(aliados_sponsors) {
     aliados_sponsors.forEach(element => {
-        $(`#${element}s-container`).append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
+        $(`#${element.type}s-container`).append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
             <div class="text-center px-3">
                 <h5 class="text-white d-flex justify-content-center align-items-center gap-4 fs-4 fw-bold">
                     ${element.logo}
