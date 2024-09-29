@@ -8,6 +8,7 @@
     --blue-vaquero: #5FB5E7;
     --gray: #555555;
     --dark-soft: #131416;
+    --negro-pasa: #252323;
 }
 
 * {
@@ -29,7 +30,9 @@ p, address{
 .bg-dark-soft {
     background-color: var(--dark-soft);
 }
-
+.bg-negro-pasa{
+    background-color: var(--negro-pasa);
+}
 .scroll-hide::-webkit-scrollbar {
     display: none;
 }
