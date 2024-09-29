@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    fillSpeakers(speakers)
+    fillSpeakers(speakers);
+    fillAliados(aliados);
 });
 
 function fillSpeakers(speakers) {
@@ -25,5 +26,23 @@ function fillSpeakers(speakers) {
                 </div>
             </div>
         `)
+    })
+}
+
+
+function fillAliados(aliados) {
+    aliados.forEach(aliado => {
+        $("#aliados-container").append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
+            <div class="text-center">
+                <h5 class="text-white d-flex justify-content-center align-items-center gap-4">
+                    ${aliado.logo}
+                    ${aliado.nombre}
+                </h5>
+                <p class="text-gray py-2 text-center">
+                    ${aliado.slogan}
+                </p>
+            </div>
+        </div>
+        `);
     })
 }
