@@ -1,5 +1,6 @@
 @import url(./header.css);
 @import url(./section.css);
+@import url(./footer.css);
 
 :root {
     --blue-prusia: #223A59;
@@ -14,7 +15,10 @@
     padding: 0;
     font-family: "Inter", sans-serif;;
 }
-
+p, address{
+    margin: 0;
+    padding: 0;
+}
 .text-gray {
     color: var(--gray);
 }
@@ -54,4 +58,15 @@
 }
 .btn-gradient {
     border-image: radial-gradient(circle, var(--blue-vaquero) 0%, var(--blue-prusia) 100%) 1;
+}
+
+.btn-vaquero {
+    background-color: var(--blue-vaquero);
+    padding: .5rem 1rem;
+    color: black;
+    font-weight: bold;
+    transition: all ease-in-out .2s;
+    border-radius: 5px;
+    width: fit-content;
+    border: 0;
 }
