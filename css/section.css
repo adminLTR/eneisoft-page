@@ -43,7 +43,7 @@
 
 .icon-gradient {
     position: relative;
-    display: inline-block; /* Para que ajuste al tamaño del SVG */
+    display: inline-block;
 }
 
 .icon-gradient::before {
@@ -51,10 +51,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 150px; /* Ajusta el tamaño al que desees */
-    height: 150px; /* Ajusta el tamaño al que desees */
+    width: 150px;
+    height: 150px; 
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, var(--blue-carolina) 0%, rgb(0, 0, 0) 50%);
-    border-radius: 50%; /* Ajusta si quieres un gradiente circular */
-    z-index: -1; /* Para que esté detrás del contenido */
+    border-radius: 50%; 
+    z-index: -1;
 }
