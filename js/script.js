@@ -9,11 +9,11 @@ function fillSpeakers(speakers) {
             <div class="col-sm-12 col-md-6 p-5">
                 <div class="bg-black p-4">
                     <img src="${speaker.foto}" alt="user" class="img-fluid rounded-circle d-block m-auto">
-                    <h5 class="my-4 text-white d-flex align-items-center gap-2">
+                    <h5 class="my-3 text-white d-flex align-items-center gap-2">
                         ${speaker.nombres} ${speaker.apellidos}
                         <img width="30" height="30" src="https://img.icons8.com/emoji/48/${speaker.pais}-emoji.png" alt="${speaker.pais}-emoji"/>
                     </h5>
-                    <p class="text-gray">${speaker.perfil}</p>
+                    <p class="text-gray my-3">${speaker.perfil}</p>
                     <div class="d-flex justify-content-start align-items-center gap-2">
                         ${Object.keys(speaker.social_media).map(social => {
                             return `<a class="text-decoration-none" href="${speaker.social_media[social]}">
@@ -30,16 +30,16 @@ function fillSpeakers(speakers) {
 }
 
 
-function fillAliados(aliados_sponsors) {
-    aliados_sponsors.forEach(element => {
-        $(`#${element.type}s-container`).append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
-            <div class="text-center">
-                <h5 class="text-white d-flex justify-content-center align-items-center gap-4">
-                    ${element.logo}
-                    ${element.nombre ?? ''}
+function fillAliados(aliados) {
+    aliados.forEach(aliado => {
+        $("#aliados-container").append(`<div class="col-sm-12 col-md-6 col-lg-4 p-5">
+            <div class="text-center px-3">
+                <h5 class="text-white d-flex justify-content-center align-items-center gap-4 fs-4 fw-bold">
+                    ${aliado.logo}
+                    ${aliado.nombre}
                 </h5>
-                <p class="text-gray py-2 text-center">
-                    ${element.slogan}
+                <p class="text-gray py-2 mx-4 text-center">
+                    ${aliado.slogan}
                 </p>
             </div>
         </div>
