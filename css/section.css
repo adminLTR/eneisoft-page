@@ -58,3 +58,15 @@
     border-radius: 50%; 
     z-index: -1;
 }
+
+.day-agenda {
+    border-right: 1px solid white;
+}
+
+@media (max-width: 768px) {
+    .day-agenda {
+        border-right: 0;
+        border-bottom: 1px solid white;
+        padding-bottom: 1rem;
+    }
+}
