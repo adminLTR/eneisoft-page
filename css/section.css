@@ -1,5 +1,5 @@
 .title {
-    font-size: 58px;
+    font-size: 56px;
     font-weight: 900;
     background: radial-gradient(circle at center, var(--blue-vaquero) 0%, var(--blue-carolina) 100%);
     -webkit-background-clip: text;
@@ -63,10 +63,32 @@
     border-right: 1px solid white;
 }
 
+.home-container {
+    max-width: 752px;
+    margin: auto;
+}
+
+.info-div {
+    max-width: 336px;
+    padding: 48px 36px;
+    margin: auto;
+}
+@media (max-width: 1200px) {
+    .info-div {
+        padding: 40px 20px;
+    }
+}
 @media (max-width: 768px) {
     .day-agenda {
         border-right: 0;
         border-bottom: 1px solid white;
         padding-bottom: 1rem;
     }
+    .home-container {
+        max-width: 368px;
+    }
+    .info-div {
+        max-width: auto;
+    }
+    
 }
