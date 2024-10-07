@@ -20,6 +20,11 @@ p, address{
     margin: 0;
     padding: 0;
 }
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .text-gray {
     color: var(--gray);
 }

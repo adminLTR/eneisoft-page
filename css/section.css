@@ -30,11 +30,14 @@
 
 .number-info {
     color: white;
-    font-size: 64px;
     font-weight: bolder;
     margin-bottom: .25rem;
 }
 
+.invitacion {
+    max-width: 196px;
+    margin: auto;
+}
 
 .bg-shadow {
     /* margin-bottom: 1.5rem; */
@@ -111,6 +114,9 @@
         flex-direction: row;
         justify-content: left;
         gap: 2rem;
+    }
+    .invitacion {
+        margin: 1.5rem auto;
     }
 }
 @media (max-width: 420px) {
