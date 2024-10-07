@@ -73,6 +73,19 @@
     padding: 48px 36px;
     margin: auto;
 }
+.objetivo {
+    padding-bottom: 2rem;
+}
+.objetivo:nth-child(1) {
+    padding-right: 48px;
+}
+.objetivo:nth-child(2) {
+    padding-left: 48px;
+}
+.objetivo-cont {
+    display: flex;
+    flex-direction: column;
+}
 @media (max-width: 1200px) {
     .info-div {
         padding: 40px 20px;
@@ -90,5 +103,19 @@
     .info-div {
         max-width: auto;
     }
-    
+    .objetivo {
+        padding: 2rem 3rem;
+    }
+    .objetivo-cont {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        gap: 2rem;
+    }
+}
+@media (max-width: 420px) {
+    .objetivo-cont {
+        flex-direction: column;
+        gap: 0;
+    }
 }
