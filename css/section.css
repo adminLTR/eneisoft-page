@@ -40,8 +40,7 @@
 }
 
 .bg-shadow {
-    /* margin-bottom: 1.5rem; */
-    background: radial-gradient(ellipse, #2979f15f 0%, rgb(0, 0, 0) 50%);
+    background: radial-gradient(ellipse, #2979f15f 0%, rgb(0, 0, 0) 60%);
 }
 
 .icon-gradient {
