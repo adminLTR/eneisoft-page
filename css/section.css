@@ -61,7 +61,23 @@
     border-radius: 50%; 
     z-index: -1;
 }
-
+.actividades h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.actividades p{
+    font-size: 16px;
+    font-weight: normal;
+}
+.actividad {
+    max-width: 340px;
+    margin: auto;
+}
+.actividad button {
+    font-weight: normal;
+    font-size: 14px;
+    border-width: 1px;
+}
 .day-agenda {
     border-right: 1px solid white;
 }
@@ -89,10 +105,20 @@
     display: flex;
     flex-direction: column;
 }
+
+.actividad {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
 @media (max-width: 1200px) {
     .info-div {
         padding: 40px 20px;
     }
+}
+@media (max-width: 991px) {
+    
 }
 @media (max-width: 768px) {
     .day-agenda {
