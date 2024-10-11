@@ -84,6 +84,21 @@
     margin: auto;
 }
 
+.circle-number {
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: bold;
+}
+.circle-number p {
+    --size: 75px;
+    width: var(--size);
+    height: var(--size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif !important;
+}
+
 .info-div {
     max-width: 336px;
     padding: 48px 36px;

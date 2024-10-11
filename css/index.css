@@ -11,6 +11,7 @@
     --negro-pasa: #252323;
     --pink: #FF4294;
     --main: #0D1639;
+    --sky: #ADBBFD;
 }
 
 * {
@@ -38,6 +39,9 @@ p, address{
 }
 .bg-main {
     background-color: var(--main);
+}
+.bg-sky {
+    background-color: var(--sky);
 }
 .bg-dark-soft {
     background-color: var(--dark-soft);
@@ -87,7 +91,7 @@ p, address{
 }
 
 h2{
-    font-size: 48px;
+    font-size: 33px;
 }
 
 header a, h1, h2, h3, h4, h5, h6 {
