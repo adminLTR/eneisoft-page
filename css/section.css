@@ -92,6 +92,13 @@
     flex-direction: column;
 }
 
+.horario {
+    display: flex;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 1rem;
+}
+
 @media (max-width: 1200px) {
     .info-div {
         padding: 40px 20px;
