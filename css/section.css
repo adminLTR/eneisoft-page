@@ -98,7 +98,11 @@
     align-items: start;
     padding-bottom: 1rem;
 }
-
+#btn-agenda {
+    width: fit-content;
+    margin: auto;
+    padding: 1rem 5rem;
+}
 @media (max-width: 1200px) {
     .info-div {
         padding: 40px 20px;
