@@ -39,6 +39,9 @@ p, address{
 .text-pink {
     color: var(--pink);
 }
+.text-yellow {
+    color: var(--yellow);
+}
 .text-main {
     color: var(--main);
 }
