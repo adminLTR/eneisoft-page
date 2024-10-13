@@ -6,8 +6,8 @@ $(document).ready(function () {
 function fillSpeakers(speakers) {
     speakers.forEach(function (speaker) {
         $("#speakers-container").append(`
-            <div class="col-sm-12 col-md-6 p-5">
-                <div class="p-4">
+            <div class="col-sm-12 col-md-6 p-3 p-md-5">
+                <div class="p-2">
                     <img src="${speaker.foto}" alt="user" class="img-fluid rounded-circle d-block m-auto">
                     <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
                         ${speaker.nombres} ${speaker.apellidos}
