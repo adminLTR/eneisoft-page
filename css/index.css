@@ -11,7 +11,9 @@
     --negro-pasa: #252323;
     --pink: #FF4294;
     --main: #0D1639;
+    --main-hover: #1d2857;
     --sky: #ADBBFD;
+    --yellow: #FEA927;
 }
 
 * {
@@ -42,6 +44,9 @@ p, address{
 }
 .bg-sky {
     background-color: var(--sky);
+}
+.bg-yellow{
+    background-color: var(--yellow);
 }
 .bg-dark-soft {
     background-color: var(--dark-soft);
@@ -78,7 +83,15 @@ p, address{
 .btn-gradient {
     border-image: radial-gradient(circle, var(--blue-vaquero) 0%, var(--blue-prusia) 100%) 1;
 }
-
+.btn-main {
+    background-color: var(--main);
+    color: white;
+    text-align: center;
+}
+.btn-main:hover {
+    background-color: var(--main-hover);
+    color: white;
+}
 .btn-vaquero {
     background-color: var(--blue-vaquero);
     padding: .5rem 1rem;
