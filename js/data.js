@@ -1,13 +1,16 @@
 const speakers = [
     {
-        nombres: 'Alejandro',
-        apellidos: 'Saenz',
-        perfil: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        nombres: 'Steve',
+        apellidos: 'Jobs',
+        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
         social_media: {
             github: "#",
+            facebook: "#",
+            instagram: "#",
             linkedin: "#",
             twitter: "#",
-            // web: "#",
+            tiktok: "#",
+            youtube: "#",
         },
         pais: "spain",
         foto: "./img/user.png",
@@ -15,12 +18,15 @@ const speakers = [
     {
         nombres: 'Fatz',
         apellidos: 'Code',
-        perfil: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
         social_media: {
             github: "#",
+            facebook: "#",
+            instagram: "#",
             linkedin: "#",
             twitter: "#",
-            // web: "#",
+            tiktok: "#",
+            youtube: "#",
         },
         pais: "peru",
         foto: "./img/user.png",

@@ -7,17 +7,17 @@ function fillSpeakers(speakers) {
     speakers.forEach(function (speaker) {
         $("#speakers-container").append(`
             <div class="col-sm-12 col-md-6 p-5">
-                <div class="bg-black p-4">
+                <div class="p-4">
                     <img src="${speaker.foto}" alt="user" class="img-fluid rounded-circle d-block m-auto">
-                    <h5 class="my-3 text-white d-flex align-items-center gap-2">
+                    <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
                         ${speaker.nombres} ${speaker.apellidos}
                         <img width="30" height="30" src="https://img.icons8.com/emoji/48/${speaker.pais}-emoji.png" alt="${speaker.pais}-emoji"/>
                     </h5>
-                    <p class="text-gray my-3">${speaker.perfil}</p>
-                    <div class="d-flex justify-content-start align-items-center gap-2">
+                    <p class="text-gray text-center my-3">${speaker.perfil}</p>
+                    <div class="d-flex justify-content-center align-items-center gap-1">
                         ${Object.keys(speaker.social_media).map(social => {
                             return `<a class="text-decoration-none" href="${speaker.social_media[social]}">
-                                <div class="social-media">
+                                <div class="social-media bg-main text-white fs-6">
                                     <i class="fa-brands fa-${social}"></i>
                                 </div>
                             </a>`
