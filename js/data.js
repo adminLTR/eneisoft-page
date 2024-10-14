@@ -56,3 +56,41 @@ const aliados_sponsors = [
     },
 
 ]
+
+
+const agenda = [
+    {
+        dia: '04',
+        actividades: [
+            {
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+            {
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+        ],
+    },
+    {
+        dia: '05',
+        actividades: [
+            {
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+            {
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+        ],
+    },
+]

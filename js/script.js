@@ -1,6 +1,7 @@
 $(document).ready(function () {
     fillSpeakers(speakers);
     fillAliados(aliados_sponsors);
+    fillAgenda(agenda);
 
     const sections = document.querySelectorAll("section"); // Asume que tus secciones son <section>
     const navLinks = document.querySelectorAll(".nav-link");
@@ -66,6 +67,35 @@ function fillAliados(aliados_sponsors) {
             </div>
         </div>
         `);
+    })
+}
+
+function fillAgenda(agenda) {
+    agenda.forEach(element => {
+        $(`#agenda-container`).append(`<div class="container-fluid agenda p-3 my-4">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 col-lg-4 p-2">
+                    <div class="text-center h-100 day-agenda d-flex flex-column justify-content-center align-items-center">
+                        <p class="fw-bold" style="font-size: 4rem;">${element.dia}</p>
+                        <p class="bg-main text-white fw-bold px-3" style="font-size: 2rem;">Nov</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-8 p-4 px-lg-5">
+                    ${element.actividades.map(actividad => {
+                        return `<div class="horario">
+                            <div class="d-flex align-items-center gap-2 py-1 fw-bold fs-5">
+                                <i class="fa-solid fa-clock"></i>
+                                ${actividad.inicio} - ${actividad.fin}
+                            </div>
+                            <div>
+                                <p class="fw-bold">${actividad.nombre}</p>
+                                <p>${actividad.detalles}</p>
+                            </div>
+                        </div>`
+                    })}                    
+                </div>
+            </div>
+        </div>`)
     })
 }
 
