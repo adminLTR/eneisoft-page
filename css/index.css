@@ -3,15 +3,9 @@
 @import url(./footer.css);
 
 :root {
-    --blue-prusia: #223A59;
-    --blue-carolina: #297AF1;
-    --blue-vaquero: #5FB5E7;
-    --gray: #555555;
-    --dark-soft: #131416;
-    --negro-pasa: #252323;
     --pink: #FF4294;
     --main: #0D1639;
-    --main-hover: #1d2857;
+    --main-hover: #172664;
     --sky: #ADBBFD;
     --yellow: #FEA927;
 }
@@ -29,12 +23,6 @@ p, address{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.text-gray {
-    color: var(--gray);
-}
-.text-blue-carolina {
-    color: var(--blue-carolina);
 }
 .text-pink {
     color: var(--pink);
@@ -54,12 +42,7 @@ p, address{
 .bg-yellow{
     background-color: var(--yellow);
 }
-.bg-dark-soft {
-    background-color: var(--dark-soft);
-}
-.bg-negro-pasa{
-    background-color: var(--negro-pasa);
-}
+
 .scroll-hide::-webkit-scrollbar {
     display: none;
 }
@@ -68,12 +51,6 @@ p, address{
 .scroll-hide {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-}
-
-
-.max-container {
-    max-width: 752px;
-    margin: auto;
 }
 
 .btn-main {
@@ -85,6 +62,7 @@ p, address{
     background-color: var(--main-hover);
     color: white;
 }
+
 h2{
     font-size: 33px;
 }

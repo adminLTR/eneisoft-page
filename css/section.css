@@ -24,6 +24,13 @@
     align-items: center;
     color: black;
     font-size: 25px;
+    transition: all ease-in-out .2s;
+}
+.social-media:hover {
+    background-color: rgb(211, 211, 211);
+}
+.media-speaker:hover {
+    background-color: var(--main-hover);
 }
 
 .number-info {
@@ -71,25 +78,6 @@
     justify-content: center;
     align-items: center;
     font-family: "Poppins", sans-serif !important;
-}
-
-.info-div {
-    max-width: 336px;
-    padding: 48px 36px;
-    margin: auto;
-}
-.objetivo {
-    padding-bottom: 2rem;
-}
-.objetivo:nth-child(1) {
-    padding-right: 48px;
-}
-.objetivo:nth-child(2) {
-    padding-left: 48px;
-}
-.objetivo-cont {
-    display: flex;
-    flex-direction: column;
 }
 
 .horario {

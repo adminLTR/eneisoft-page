@@ -12,7 +12,7 @@ $(document).ready(function () {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
 
-            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+            if (window.scrollY >= sectionTop - sectionHeight / 3) {
                 currentSection = section.getAttribute("id");
             }
         });
@@ -40,7 +40,7 @@ function fillSpeakers(speakers) {
                     <div class="d-flex justify-content-center align-items-center gap-1">
                         ${Object.keys(speaker.social_media).map(social => {
                             return `<a class="text-decoration-none" href="${speaker.social_media[social]}">
-                                <div class="social-media bg-main text-white fs-6">
+                                <div class="social-media media-speaker bg-main text-white fs-6">
                                     <i class="fa-brands fa-${social}"></i>
                                 </div>
                             </a>`
