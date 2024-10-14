@@ -31,10 +31,10 @@ function fillSpeakers(speakers) {
         $("#speakers-container").append(`
             <div class="col-sm-12 col-md-6 p-3 p-md-5">
                 <div class="p-2">
-                    <img src="${speaker.foto}" alt="user" class="img-fluid rounded-circle d-block m-auto">
+                    <img src="./img/speakers/${formatSpeakerName(speaker.nombres, speaker.apellidos)}" width=200 alt="user" class="img-fluid rounded-circle d-block m-auto">
                     <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
                         ${speaker.nombres} ${speaker.apellidos}
-                        <img width="30" height="30" src="https://img.icons8.com/emoji/48/${speaker.pais}-emoji.png" alt="${speaker.pais}-emoji"/>
+                        <img width="30" height="30" src="https://img.icons8.com/color/48/${speaker.pais}.png" alt="${speaker.pais}-emoji"/>
                     </h5>
                     <p class="text-gray text-center my-3">${speaker.perfil}</p>
                     <div class="d-flex justify-content-center align-items-center gap-1">
@@ -67,4 +67,13 @@ function fillAliados(aliados_sponsors) {
         </div>
         `);
     })
+}
+
+/**
+ * 
+ * @param {string} name 
+ * @param {string} surname 
+ */
+function formatSpeakerName(name, surname) {
+    return name.toLowerCase() + "_" + surname.toLowerCase() + ".png"
 }

@@ -12,8 +12,7 @@ const speakers = [
             tiktok: "#",
             youtube: "#",
         },
-        pais: "spain",
-        foto: "./img/user.png",
+        pais: "usa",
     },
     {
         nombres: 'Fatz',
@@ -29,7 +28,6 @@ const speakers = [
             youtube: "#",
         },
         pais: "peru",
-        foto: "./img/user.png",
     },
 ];
 
