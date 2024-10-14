@@ -1,6 +1,29 @@
 $(document).ready(function () {
     fillSpeakers(speakers);
     fillAliados(aliados_sponsors);
+
+    const sections = document.querySelectorAll("section"); // Asume que tus secciones son <section>
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+        let currentSection = "";
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+
+            if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                currentSection = section.getAttribute("id");
+            }
+        });
+
+        navLinks.forEach((link) => {
+            link.classList.remove("link-active");
+            if (link.getAttribute("href") === `#${currentSection}`) {
+                link.classList.add("link-active");
+            }
+        });
+    });
 });
 
 function fillSpeakers(speakers) {
