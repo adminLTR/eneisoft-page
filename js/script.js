@@ -38,7 +38,7 @@ $(document).ready(function () {
 });
 
 function fillSpeakers(speakers) {
-    speakers.forEach(function (speaker) {
+    speakers.forEach(function (speaker, index) {
         $("#speakers-container").append(`
             <div class="col-sm-12 col-md-6 p-3 p-md-5">
                 <div class="p-2">
@@ -60,6 +60,13 @@ function fillSpeakers(speakers) {
                 </div>
             </div>
         `)
+        if (index%2!=0 && index!=speakers.length-1) {
+            $("#speakers-container").append(`
+                <div class="col-sm-12 d-none d-md-block">
+                    <div class="square bg-main m-auto" style="width: 40px; height: 40px;"></div>
+                </div>
+            `);
+        }
     })
 }
 

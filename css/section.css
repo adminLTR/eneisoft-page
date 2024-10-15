@@ -149,7 +149,6 @@
 .square {
     width: 20px;
     height: 20px;
-    position: absolute;
 }
 @media (max-width: 576px) {
     .bolitas {
