@@ -1,5 +1,7 @@
 const speakers = [
+    // aca van los speakers y talleristas
     {
+        tipo: 'speaker',
         nombres: 'Steve',
         apellidos: 'Jobs',
         perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
@@ -13,8 +15,18 @@ const speakers = [
             youtube: "#",
         },
         pais: "usa",
+        charlas: [
+            {
+                dia: '04',
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+        ]
     },
     {
+        tipo: 'speaker',
         nombres: 'Fatz',
         apellidos: 'Code',
         perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
@@ -28,66 +40,15 @@ const speakers = [
             youtube: "#",
         },
         pais: "peru",
-    },
-    {
-        nombres: 'Fatz',
-        apellidos: 'Code',
-        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
-        social_media: {
-            github: "#",
-            facebook: "#",
-            instagram: "#",
-            linkedin: "#",
-            twitter: "#",
-            tiktok: "#",
-            youtube: "#",
-        },
-        pais: "peru",
-    },
-    {
-        nombres: 'Steve',
-        apellidos: 'Jobs',
-        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
-        social_media: {
-            github: "#",
-            facebook: "#",
-            instagram: "#",
-            linkedin: "#",
-            twitter: "#",
-            tiktok: "#",
-            youtube: "#",
-        },
-        pais: "usa",
-    },
-    {
-        nombres: 'Fatz',
-        apellidos: 'Code',
-        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
-        social_media: {
-            github: "#",
-            facebook: "#",
-            instagram: "#",
-            linkedin: "#",
-            twitter: "#",
-            tiktok: "#",
-            youtube: "#",
-        },
-        pais: "peru",
-    },
-    {
-        nombres: 'Steve',
-        apellidos: 'Jobs',
-        perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
-        social_media: {
-            github: "#",
-            facebook: "#",
-            instagram: "#",
-            linkedin: "#",
-            twitter: "#",
-            tiktok: "#",
-            youtube: "#",
-        },
-        pais: "usa",
+        charlas: [
+            {
+                dia: '04',
+                inicio: '11:00',
+                fin: '13:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+            },
+        ]
     },
 ];
 
