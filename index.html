@@ -404,7 +404,7 @@
             </div>
         </section>
 
-        <section class="container-fluid bg-main py-5 position-relative px-lg-5" id="aliados">
+        <section class="container-fluid bg-main py-5 position-relative px-lg-5" style="z-index: 100;" id="aliados">
 
             <img src="./img/bolitas3.png" alt="bg" class="bolitas"> 
             <div class="position-absolute bottom-0 start-0 bg-black" style="width: 200px; height: 40px;"></div>
@@ -434,13 +434,19 @@
         </section>
         
         <!-- agenda -->
-         <section class="container-fluid bg-white-soft" id="agenda">
-             <div class="container py-4">
+         <section class="container-fluid bg-white-soft py-5 position-relative px-lg-5" id="agenda">
+            <img src="./img/bolitas1.png" alt="bg" class="bolitas"> 
+
+             <div class="container py-4 px-2 px-lg-5">
                 <div class="row text-pink">
                     <h2 class="text-center fw-bold">Agenda</h2>
                 </div>
-                <div class="row p-4 text-main" id="agenda-container">
+                <div class="row p- text-main position-relative mx-2 mx-md-5">
+                    <div class="position-absolute d-none d-md-block bg-sky" style="width: 200px; height: 150px; transform: translateY(-100%);"></div>
+                    <div class="position-absolute d-none d-md-block bg-black" style="width: 100px; height: 40px; top: -1rem; transform: translate(-100%);"></div>
+                    <div class="position-absolute d-none d-md-block bg-black" style="width: 100px; height: 40px; top: -1rem; right: 0; transform: translate(100%);"></div>
                     <!-- Aqui va la agenda jalados del json -->
+                     <div class="w-100 pt-4" id="agenda-container"></div>
                 </div>
                 <div class="row">
                     <button id="btn-agenda" class="btn btn-main my-3 py-1 rounded rounded-pill">Ver agenda completa</button>

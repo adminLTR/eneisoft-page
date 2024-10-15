@@ -94,7 +94,6 @@
     display: flex;
     gap: 2rem;
     align-items: start;
-    padding-bottom: 1rem;
 }
 #btn-agenda {
     width: fit-content;

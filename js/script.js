@@ -88,8 +88,8 @@ function fillAliados(aliados_sponsors) {
 }
 
 function fillAgenda(agenda) {
-    agenda.forEach(element => {
-        $(`#agenda-container`).append(`<div class="container-fluid agenda p-3 my-4">
+    agenda.forEach((element, index) => {
+        $(`#agenda-container`).append(`<div class="container-fluid agenda p-3">
             <div class="row">
                 <div class="col-sm-12 col-md-4 col-lg-4 p-2">
                     <div class="text-center h-100 day-agenda d-flex flex-column justify-content-center align-items-center">
@@ -98,9 +98,10 @@ function fillAgenda(agenda) {
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-8 p-4 px-lg-5">
-                    ${element.actividades.map(actividad => {
+                    ${element.actividades.map((actividad, i) => {
                         return `<div class="horario">
-                            <div class="d-flex align-items-center gap-2 py-1 fw-bold fs-5">
+                            <div class="d-flex align-items-center gap-2 py-1 fw-bold fs-5 position-relative">
+                                ${i==1 ? `<div class="position-absolute top-0 bg-main start-0" style="width: 40px; height: 10px; transform: translateY(-100%);"></div>` : ''}
                                 <i class="fa-solid fa-clock"></i>
                                 ${actividad.inicio} - ${actividad.fin}
                             </div>
@@ -113,6 +114,13 @@ function fillAgenda(agenda) {
                 </div>
             </div>
         </div>`)
+        if (index!=agenda.length-1) {
+            $("#agenda-container").append(`
+                <div class="container-fluid">
+                    <div class="square bg-main m-auto" style="width: 40px; height: 40px;"></div>
+                </div>
+            `);
+        }
     })
 }
 
