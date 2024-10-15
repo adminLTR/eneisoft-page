@@ -1,7 +1,6 @@
 const speakers = [
     // aca van los speakers y talleristas
     {
-        tipo: 'speaker',
         nombres: 'Steve',
         apellidos: 'Jobs',
         perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
@@ -17,6 +16,7 @@ const speakers = [
         pais: "usa",
         charlas: [
             {
+                tipo: 'worskhop',
                 dia: '04',
                 inicio: '08:00',
                 fin: '10:00',
@@ -26,7 +26,6 @@ const speakers = [
         ]
     },
     {
-        tipo: 'speaker',
         nombres: 'Fatz',
         apellidos: 'Code',
         perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
@@ -42,6 +41,7 @@ const speakers = [
         pais: "peru",
         charlas: [
             {
+                tipo: 'keynote',
                 dia: '04',
                 inicio: '11:00',
                 fin: '13:00',
