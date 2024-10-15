@@ -1,7 +1,6 @@
 .title {
     font-size: 50px;
     font-weight: 900;
-    background-clip: text;
     color: white;
     text-align: center;
 }
@@ -145,5 +144,8 @@
     .objetivo-cont {
         flex-direction: column;
         gap: 0;
+    }
+    .title{
+        font-size: 40px;
     }
 }
