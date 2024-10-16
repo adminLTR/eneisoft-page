@@ -90,11 +90,6 @@
     font-family: "Poppins", sans-serif !important;
 }
 
-.horario {
-    display: flex;
-    gap: 2rem;
-    align-items: start;
-}
 #btn-agenda {
     width: fit-content;
     margin: auto;

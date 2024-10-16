@@ -8,6 +8,7 @@ $(document).ready(function () {
     }
 
     if (document.getElementById("agenda-container")) {
+        const agenda = formatearActividades(speakers)
         fillAgenda(agenda);
     }
 
@@ -18,6 +19,7 @@ $(document).ready(function () {
     if (document.getElementById("charlas-container")) {
         fillEventos(speakers, "charlas");        
     }
+
 
 
     const sections = document.querySelectorAll("section"); // Asume que tus secciones son <section>
@@ -107,15 +109,15 @@ function fillAgenda(agenda) {
                         <p class="bg-main text-white fw-bold px-3" style="font-size: 2rem;">Nov</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-8 col-lg-8 p-4 px-lg-5">
+                <div class="col-sm-12 col-md-8 col-lg-8 p-2 px-xl-3 container-fluid">
                     ${element.actividades.map((actividad, i) => {
-                        return `<div class="horario">
-                            <div class="d-flex align-items-center gap-2 py-1 fw-bold fs-5 position-relative">
-                                ${i==1 ? `<div class="position-absolute top-0 bg-main start-0" style="width: 40px; height: 10px; transform: translateY(-100%);"></div>` : ''}
+                        return `<div class="row">
+                            <div class="col-sm-12 col-xl-4 d-flex align-items-center gap-2 py-1 fw-bold fs-5 position-relative">
+                                ${i==1 ? `<div class="position-absolute top-0 bg-main" style="width: 40px; height: 10px; transform: translateY(-100%);"></div>` : ''}
                                 <i class="fa-solid fa-clock"></i>
                                 ${actividad.inicio} - ${actividad.fin}
                             </div>
-                            <div>
+                            <div class="col-sm-12 col-xl-8">
                                 <p class="fw-bold">${actividad.nombre}</p>
                                 <p>${actividad.detalles}</p>
                             </div>
@@ -192,3 +194,42 @@ function fillEventos(speakers, event) {
 function formatSpeakerName(name, surname) {
     return name.toLowerCase() + "_" + surname.toLowerCase() + ".png"
 }
+
+const formatearActividades = (expositores) => {
+    const actividadesPorDia = {};
+
+    // Recorremos todos los expositores
+    expositores.forEach((expositor) => {
+        // Recorremos las actividades (talleres y charlas)
+        const actividades = [...expositor.talleres, ...expositor.charlas];
+
+        actividades.forEach((actividad) => {
+            const { dia, inicio, fin, nombre, detalles } = actividad;
+
+            // Si el día no existe en el objeto, lo creamos
+            if (!actividadesPorDia[dia]) {
+                actividadesPorDia[dia] = [];
+            }
+
+            // Añadimos la actividad al día correspondiente
+            actividadesPorDia[dia].push({ inicio, fin, nombre, detalles });
+        });
+    });
+
+    // Creamos el arreglo final
+    const resultado = Object.keys(actividadesPorDia)
+        .sort() // Ordenamos los días
+        .map((dia) => {
+            // Ordenamos las actividades por hora de inicio
+            const actividadesOrdenadas = actividadesPorDia[dia].sort(
+                (a, b) => a.inicio.localeCompare(b.inicio)
+            );
+
+            return {
+                dia,
+                actividades: actividadesOrdenadas,
+            };
+        });
+
+    return resultado;
+};

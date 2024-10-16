@@ -19,16 +19,16 @@ const speakers = [
                 dia: '04',
                 inicio: '08:00',
                 fin: '10:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
+                nombre: 'Emprendimiento en aplicaciones móviles',
+                detalles: 'Asiste a la charla de emprendimiento con el CEO de Apple',
                 lugar: 'Auditorio de la FISI',
             },
         ],
         charlas: [
             {
-                dia: '04',
-                inicio: '08:00',
-                fin: '10:00',
+                dia: '05',
+                inicio: '10:00',
+                fin: '13:00',
                 nombre: 'Actividad 1',
                 detalles: 'Detalles de la actividad',
                 lugar: 'Auditorio de la FISI',
@@ -50,17 +50,16 @@ const speakers = [
         },
         pais: "usa",
         talleres: [
+        ],
+        charlas: [
             {
-                dia: '04',
-                inicio: '10:00',
-                fin: '13:00',
+                dia: '05',
+                inicio: '08:00',
+                fin: '10:00',
                 nombre: 'Crea tu primer backend con Django',
                 detalles: 'Aprende el mundo de desarrollo backend creando y desplegando un servidor backend con Python',
                 lugar: 'Auditorio de la FISI',
-            },
-        ],
-        charlas: [
-
+            },            
         ],
     },
 ];
@@ -89,42 +88,4 @@ const aliados_sponsors = [
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
     },
 
-]
-
-
-const agenda = [
-    {
-        dia: '04',
-        actividades: [
-            {
-                inicio: '08:00',
-                fin: '10:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
-            },
-            {
-                inicio: '08:00',
-                fin: '10:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
-            },
-        ],
-    },
-    {
-        dia: '05',
-        actividades: [
-            {
-                inicio: '08:00',
-                fin: '10:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
-            },
-            {
-                inicio: '08:00',
-                fin: '10:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
-            },
-        ],
-    },
 ]
