@@ -11,7 +11,14 @@ $(document).ready(function () {
         fillAgenda(agenda);
     }
 
-    fillEventos(speakers, "talleres");
+    if (document.getElementById("talleres-container")) {
+        fillEventos(speakers, "talleres");        
+    }
+
+    if (document.getElementById("charlas-container")) {
+        fillEventos(speakers, "charlas");        
+    }
+
 
     const sections = document.querySelectorAll("section"); // Asume que tus secciones son <section>
     const navLinks = document.querySelectorAll(".nav-link");

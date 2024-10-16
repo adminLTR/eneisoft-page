@@ -25,7 +25,14 @@ const speakers = [
             },
         ],
         charlas: [
-            
+            {
+                dia: '04',
+                inicio: '08:00',
+                fin: '10:00',
+                nombre: 'Actividad 1',
+                detalles: 'Detalles de la actividad',
+                lugar: 'Auditorio de la FISI',
+            },
         ],
     },
     {
