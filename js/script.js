@@ -70,13 +70,6 @@ function fillSpeakers(speakers) {
                 </div>
             </div>
         `)
-        if (index%2!=0 && index!=speakers.length-1) {
-            $("#speakers-container").append(`
-                <div class="col-sm-12 d-none d-md-block">
-                    <div class="square bg-main m-auto" style="width: 40px; height: 40px;"></div>
-                </div>
-            `);
-        }
     })
 }
 
