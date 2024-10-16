@@ -14,16 +14,19 @@ const speakers = [
             youtube: "#",
         },
         pais: "usa",
-        charlas: [
+        talleres: [
             {
-                tipo: 'worskhop',
                 dia: '04',
                 inicio: '08:00',
                 fin: '10:00',
                 nombre: 'Actividad 1',
                 detalles: 'Detalles de la actividad',
+                lugar: 'Auditorio de la FISI',
             },
-        ]
+        ],
+        charlas: [
+            
+        ],
     },
     {
         nombres: 'Fatz',
@@ -38,17 +41,20 @@ const speakers = [
             tiktok: "#",
             youtube: "#",
         },
-        pais: "peru",
-        charlas: [
+        pais: "usa",
+        talleres: [
             {
-                tipo: 'keynote',
                 dia: '04',
-                inicio: '11:00',
+                inicio: '10:00',
                 fin: '13:00',
-                nombre: 'Actividad 1',
-                detalles: 'Detalles de la actividad',
+                nombre: 'Crea tu primer backend con Django',
+                detalles: 'Aprende el mundo de desarrollo backend creando y desplegando un servidor backend con Python',
+                lugar: 'Auditorio de la FISI',
             },
-        ]
+        ],
+        charlas: [
+
+        ],
     },
 ];
 
