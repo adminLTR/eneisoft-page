@@ -20,6 +20,11 @@ $(document).ready(function () {
         fillEventos(speakers, "charlas");        
     }
 
+    if (document.getElementById("calendar")) {
+        const agenda = formatearActividades(speakers)
+        calendar(agenda);
+    }
+
 
 
     const sections = document.querySelectorAll("section"); // Asume que tus secciones son <section>
@@ -237,3 +242,56 @@ const formatearActividades = (expositores, evento=null) => {
         });
     return resultado;
 };
+
+const formatearEventos = (actividadesPorDia, anio='2024', mes='11') => {
+    const eventos = [];
+
+    actividadesPorDia.forEach((diaObj) => {
+        const dia = diaObj.dia;
+        diaObj.actividades.forEach((actividad) => {
+            const { nombre, inicio, fin, detalles } = actividad;
+
+            eventos.push({
+                title: nombre,
+                start: `${anio}-${mes}-${dia}T${inicio}:00`,
+                end: `${anio}-${mes}-${dia}T${fin}:00`,
+                extendedProps: {
+                    description: detalles,
+                },
+            });
+        });
+    });
+
+    return eventos;
+};
+
+function calendar(eventos) {
+    var elementCalendar = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(elementCalendar, {
+        locale: 'es',
+        initialView: 'timeGridWeek', // Vista de semana
+        initialDate: '2024-11-04',   // Fecha inicial (4 de noviembre de 2024)
+        headerToolbar: {
+          left: '',
+          center: 'title',
+          right: ''
+        },
+        validRange: {
+          start: '2024-11-03',
+          end: '2024-11-10'
+        },
+        allDaySlot: false,
+        dayHeaderFormat: { 
+            weekday: 'long',  // Día completo (Lunes, Martes, etc.)
+            day: '2-digit'    // Número del día (04, 05, etc.)
+          },
+      
+          // Personalización del título (Nombre del mes centrado)
+          titleFormat: { 
+            year: 'numeric',  // Año numérico completo
+            month: 'long'     // Nombre completo del mes
+          },
+        events: formatearEventos(eventos),
+      });
+      calendar.render()
+}
