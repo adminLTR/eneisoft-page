@@ -137,82 +137,87 @@ function fillAgenda(agenda) {
 }
 
 function fillEventos(speakers, event) {
-    speakers.forEach((speaker) => {
-        const eventos = speaker[event];
-        if (eventos.length !== 0) {
-            eventos.forEach((evento, index) => {
-                $(`#${event}-container`).append(`
-                    <div class="row agenda p-3 py-md-4 mb-3 mb-md-5">
-                        <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 day-agenda">
-                            <img src="./img/speakers/${formatSpeakerName(speaker.nombres, speaker.apellidos)}" width=150 alt="user" class="img-fluid rounded-circle d-block m-auto">                            
-                            <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
-                                ${speaker.nombres} ${speaker.apellidos}
-                                <img width="30" height="30" src="https://img.icons8.com/color/48/${speaker.pais}.png" alt="${speaker.pais}-emoji"/>
-                            </h5>
-                            <p class="text-gray text-center my-3">${speaker.perfil}</p>
-                            <div class="d-flex justify-content-center align-items-center gap-1">
-                                ${Object.keys(speaker.social_media).map(social => {
-                                    return `<a class="text-decoration-none" href="${speaker.social_media[social]}">
-                                        <div class="social-media media-speaker bg-main text-white fs-6">
-                                            <i class="fa-brands fa-${social}"></i>
-                                        </div>
-                                    </a>`
-                                }).toString().replace(/,/g, '')}
+    const fechas = formatearActividades(speakers, event);
+    fechas.forEach((fecha) => {
+        fecha.actividades.forEach(evento=>{
+            $(`#${event}-container`).append(`
+                <div class="row agenda p-3 py-md-4 mb-3 mb-md-5">
+                    <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 day-agenda">
+                        <img src="./img/speakers/${formatSpeakerName(evento.exp.nombres, evento.exp.apellidos)}" width=150 alt="user" class="img-fluid rounded-circle d-block m-auto">                            
+                        <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
+                            ${evento.exp.nombres} ${evento.exp.apellidos}
+                            <img width="30" height="30" src="https://img.icons8.com/color/48/${evento.exp.pais}.png" alt="${evento.exp.pais}-emoji"/>
+                        </h5>
+                        <p class="text-gray text-center my-3">${evento.exp.perfil}</p>
+                        <div class="d-flex justify-content-center align-items-center gap-1">
+                            ${Object.keys(evento.exp.social_media).map(social => {
+                                return `<a class="text-decoration-none" href="${evento.exp.social_media[social]}">
+                                    <div class="social-media media-speaker bg-main text-white fs-6">
+                                        <i class="fa-brands fa-${social}"></i>
+                                    </div>
+                                </a>`
+                            }).toString().replace(/,/g, '')}
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 d-flex flex-column align-items-start">
+                        <h5 class="text-main fw-bold mb-4">${evento.nombre}</h5>
+                        <p class="mb-4">${evento.detalles}</p>
+                        <div class="text-main flex-grow-1">
+                            <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-calendar"></i>
+                                ${fecha.dia}/11
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-clock"></i>
+                                ${evento.inicio} - ${evento.fin}
+                            </div>
+                            <div class="d-flex gap-2 align-items-center">
+                                <i class="fa-solid fa-location-dot"></i>
+                                ${evento.lugar}
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 d-flex flex-column align-items-start">
-                            <h5 class="text-main fw-bold mb-4">${evento.nombre}</h5>
-                            <p class="mb-4">${evento.detalles}</p>
-                            <div class="text-main flex-grow-1">
-                                <div class="d-flex gap-2 align-items-center">
-                                    <i class="fa-solid fa-calendar"></i>
-                                    ${evento.dia}/11
-                                </div>
-                                <div class="d-flex gap-2 align-items-center">
-                                    <i class="fa-solid fa-clock"></i>
-                                    ${evento.inicio} - ${evento.fin}
-                                </div>
-                                <div class="d-flex gap-2 align-items-center">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                    ${evento.lugar}
-                                </div>
-                            </div>
-                            <a href="#" class="btn btn-main my-3 py-1 px-5 rounded rounded-pill">Inscribirme</a>
-                        </div>
-                    </div>    
-                `);
-            })
-        }
+                        <a href="#" class="btn btn-main my-3 py-1 px-5 rounded rounded-pill">Inscribirme</a>
+                    </div>
+                </div>    
+            `);
+        })
     })
+
 }
 
-/**
- * 
- * @param {string} name 
- * @param {string} surname 
- */
 function formatSpeakerName(name, surname) {
     return name.toLowerCase() + "_" + surname.toLowerCase() + ".png"
 }
 
-const formatearActividades = (expositores) => {
+const formatearActividades = (expositores, evento=null) => {
     const actividadesPorDia = {};
 
     // Recorremos todos los expositores
     expositores.forEach((expositor) => {
         // Recorremos las actividades (talleres y charlas)
-        const actividades = [...expositor.talleres, ...expositor.charlas];
+        let actividades;
+        if (!evento) {
+            actividades = [...expositor.talleres, ...expositor.charlas];
+        } else {
+            actividades = [...expositor[evento]];
+        }
 
         actividades.forEach((actividad) => {
-            const { dia, inicio, fin, nombre, detalles } = actividad;
+            const { dia, inicio, fin, nombre, detalles, lugar } = actividad;
 
             // Si el día no existe en el objeto, lo creamos
             if (!actividadesPorDia[dia]) {
                 actividadesPorDia[dia] = [];
             }
-
+            const exp = {
+                nombres: expositor.nombres,
+                apellidos: expositor.apellidos,
+                perfil: expositor.perfil,
+                social_media: expositor.social_media,
+                pais: expositor.pais,
+            }
             // Añadimos la actividad al día correspondiente
-            actividadesPorDia[dia].push({ inicio, fin, nombre, detalles });
+            actividadesPorDia[dia].push({ inicio, fin, nombre, detalles, lugar, exp });
         });
     });
 
@@ -230,6 +235,5 @@ const formatearActividades = (expositores) => {
                 actividades: actividadesOrdenadas,
             };
         });
-
     return resultado;
 };

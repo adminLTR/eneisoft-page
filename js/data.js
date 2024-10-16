@@ -64,7 +64,6 @@ const speakers = [
     },
 ];
 
-
 const aliados_sponsors = [
     // colocar el tipo (aliado - sponsor)
     {
