@@ -266,6 +266,7 @@ const formatearEventos = (actividadesPorDia, anio='2024', mes='11') => {
 };
 
 function calendar(eventos) {
+    console.log(formatearEventos(eventos))
     var elementCalendar = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(elementCalendar, {
         locale: 'es',
