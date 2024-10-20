@@ -91,9 +91,9 @@ function fillSpeakers(speakers) {
     })
     // alert(cont)
     if (cont === 0) {
-        $('#speakers').addClass('d-none');
+        $('#speakers, .speakers-link').addClass('d-none');
     } else {
-        $('#speakers').removeClass('d-none');
+        $('#speakers, .speakers-link').removeClass('d-none');
     }
 }
 
@@ -122,9 +122,9 @@ function fillAliados(aliados_sponsors) {
         }
     })
     if (contA+contS === 0) {
-        $('#aliados').addClass('d-none');
+        $('#aliados, .aliados-link').addClass('d-none');
     } else {
-        $('#aliados').removeClass('d-none');
+        $('#aliados, .aliados-link').removeClass('d-none');
         if (contA === 0) {
             $('#aliados-cont').addClass('d-none')
         } else {
@@ -268,7 +268,7 @@ const formatearActividades = (expositores, evento=null) => {
         }
     });
     if (cont === 0 && evento==null) {
-        $("#agenda").addClass("d-none");
+        $("#agenda, .agenda-link").addClass("d-none");
         return [];
     } else {
         if (cont==0) {
