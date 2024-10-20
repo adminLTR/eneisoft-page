@@ -230,36 +230,54 @@ function formatSpeakerName(name, surname) {
 
 const formatearActividades = (expositores, evento=null) => {
     const actividadesPorDia = {};
+    var cont = 0;
 
     // Recorremos todos los expositores
     expositores.forEach((expositor) => {
-        // Recorremos las actividades (talleres y charlas)
-        let actividades;
-        if (!evento) {
-            actividades = [...expositor.talleres, ...expositor.charlas];
-        } else {
-            actividades = [...expositor[evento]];
+        if (expositor.visible) {
+            // Recorremos las actividades (talleres y charlas)
+            let actividades;
+            if (!evento) {
+                actividades = [...expositor.talleres, ...expositor.charlas];
+                cont++;
+            } else {
+                actividades = [...expositor[evento]];
+                if (expositor[evento].length !== 0) {
+                    cont++;
+                }
+            }
+    
+            actividades.forEach((actividad) => {
+                const { dia, inicio, fin, nombre, detalles, lugar } = actividad;
+    
+                // Si el día no existe en el objeto, lo creamos
+                if (!actividadesPorDia[dia]) {
+                    actividadesPorDia[dia] = [];
+                }
+                const exp = {
+                    nombres: expositor.nombres,
+                    apellidos: expositor.apellidos,
+                    perfil: expositor.perfil,
+                    social_media: expositor.social_media,
+                    pais: expositor.pais,
+                    visible: expositor.visible,
+                }
+                // Añadimos la actividad al día correspondiente
+                actividadesPorDia[dia].push({ inicio, fin, nombre, detalles, lugar, exp });
+            });
         }
-
-        actividades.forEach((actividad) => {
-            const { dia, inicio, fin, nombre, detalles, lugar } = actividad;
-
-            // Si el día no existe en el objeto, lo creamos
-            if (!actividadesPorDia[dia]) {
-                actividadesPorDia[dia] = [];
-            }
-            const exp = {
-                nombres: expositor.nombres,
-                apellidos: expositor.apellidos,
-                perfil: expositor.perfil,
-                social_media: expositor.social_media,
-                pais: expositor.pais,
-            }
-            // Añadimos la actividad al día correspondiente
-            actividadesPorDia[dia].push({ inicio, fin, nombre, detalles, lugar, exp });
-        });
     });
-
+    if (cont === 0 && evento==null) {
+        $("#agenda").addClass("d-none");
+        return [];
+    } else {
+        if (cont==0) {
+            $(`#${evento}-cont`).addClass("d-none")
+        } else {
+            $(`#${evento}-cont`).removeClass("d-none")
+        }
+    }
+    $("#agenda").removeClass("d-none");
     // Creamos el arreglo final
     const resultado = Object.keys(actividadesPorDia)
         .sort() // Ordenamos los días
@@ -278,6 +296,7 @@ const formatearActividades = (expositores, evento=null) => {
 };
 
 const formatearEventos = (actividadesPorDia, anio='2024', mes='11') => {
+    // para el calendario
     const eventos = [];
 
     actividadesPorDia.forEach((diaObj) => {
