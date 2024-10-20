@@ -12,7 +12,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@flutterinastudio",
         },
         pais: "peru",
-        visible: false,
+        visible: true,
         talleres: [
         ],
         charlas: [
@@ -37,7 +37,7 @@ const speakers = [
             twitter: "https://twitter.com/javierblancoch",
         },
         pais: "peru",
-        visible: false,
+        visible: true,
         talleres: [
         ],
         charlas: [
@@ -63,7 +63,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@maybemarhs",
         },
         pais: "peru",
-        visible: false,
+        visible: true,
         talleres: [
         ],
         charlas: [
@@ -117,7 +117,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@yasminacodes",
         },
         pais: "spain",
-        visible: false,
+        visible: true,
         talleres: [
         ],
         charlas: [
