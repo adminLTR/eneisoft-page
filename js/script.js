@@ -32,20 +32,20 @@ $(document).ready(function () {
 
     window.addEventListener("scroll", () => {
         let currentSection = "";
+        let sectionsCurrent = [];
 
         sections.forEach((section) => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
 
-            if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            if (window.scrollY >= sectionTop - sectionHeight / 3 && !section.classList.contains("d-none")) {
                 currentSection = section.getAttribute("id");
-            }
+            } 
         });
-
         navLinks.forEach((link) => {
-            link.classList.remove("link-active");
-            if (link.getAttribute("href") === `#${currentSection}`) {
-                link.classList.add("link-active");
+            $(link).removeClass('link-active')
+            if ((link.getAttribute("href")) === "#"+currentSection) {
+                $(link).addClass("link-active");
             }
         });
     });
@@ -278,6 +278,7 @@ const formatearActividades = (expositores, evento=null) => {
         }
     }
     $("#agenda").removeClass("d-none");
+
     // Creamos el arreglo final
     const resultado = Object.keys(actividadesPorDia)
         .sort() // Ordenamos los días
