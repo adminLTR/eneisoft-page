@@ -77,7 +77,7 @@ function fillSpeakers(speakers) {
                         <p class="text-gray text-center my-3">${speaker.perfil}</p>
                         <div class="d-flex justify-content-center align-items-center gap-1">
                             ${Object.keys(speaker.social_media).map(social => {
-                                return `<a class="text-decoration-none" href="${speaker.social_media[social]}">
+                                return `<a class="text-decoration-none" target="_blank" href="${speaker.social_media[social]}">
                                     <div class="social-media media-speaker bg-main text-white fs-6">
                                         <i class="fa-brands fa-${social}"></i>
                                     </div>
