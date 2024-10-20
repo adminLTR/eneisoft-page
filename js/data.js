@@ -4,6 +4,7 @@ const speakers = [
         nombres: 'Steve',
         apellidos: 'Jobs',
         perfil: "Ing. de Software UNMSM CEO de Tortuga & Caballo Inc. Especialista en IoT, verbenas y Four Lokos",
+        visible: true,
         social_media: {
             github: "#",
             facebook: "#",
@@ -50,6 +51,7 @@ const speakers = [
             youtube: "#",
         },
         pais: "mexico",
+        visible: true,
         talleres: [
         ],
         charlas: [
@@ -71,21 +73,25 @@ const aliados_sponsors = [
         type: 'aliado',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
+        visible: true,
     },
     {
         type: 'aliado',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
+        visible: true,
     },
     {
         type: 'sponsor',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
+        visible: true,
     },
     {
         type: 'sponsor',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
+        visible: true,
     },
 
 ]
