@@ -35,6 +35,7 @@ const speakers = [
             },
         ],
     },
+
     {
         nombres: 'Fatz',
         apellidos: 'Code',
@@ -44,11 +45,11 @@ const speakers = [
             facebook: "#",
             instagram: "#",
             linkedin: "#",
-            twitter: "#",
+            'x-twitter': "#",
             tiktok: "#",
             youtube: "#",
         },
-        pais: "usa",
+        pais: "mexico",
         talleres: [
         ],
         charlas: [
