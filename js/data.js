@@ -56,7 +56,7 @@ const speakers = [
         ],
         charlas: [
             {
-                dia: '05',
+                dia: '04',
                 inicio: '08:00',
                 fin: '10:00',
                 nombre: 'Crea tu primer backend con Django',
