@@ -108,7 +108,7 @@ function fillAliados(aliados_sponsors) {
                     <h5 class="text-white d-flex justify-content-center align-items-center gap-2 fs-4 fw-bold text-nowrap">
                         <img src="./img/${element.type}s/${element.nombre.toLowerCase()}.png" height=70/>
                     </h5>
-                    <p class="text-gray py-2 mx-1 mx-lg-5 text-center">
+                    <p class="text-gray py-2 mx-1 mx-lg-5 text-center" style="font-size: 18px;">
                         ${element.slogan}
                     </p>
                 </div>
@@ -142,21 +142,21 @@ function fillAgenda(agenda) {
     agenda.forEach((element, index) => {
         $(`#agenda-container`).append(`<div class="container-fluid agenda p-3">
             <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-4 p-2">
+                <div class="col-sm-12 col-md-4 col-lg-3 p-2">
                     <div class="text-center h-100 day-agenda d-flex flex-column justify-content-center align-items-center">
-                        <p class="fw-bold" style="font-size: 4rem;">${element.dia}</p>
-                        <p class="bg-main text-white fw-bold px-3" style="font-size: 2rem;">Nov</p>
+                        <p class="fw-bold" style="font-size: 60px;">${element.dia}</p>
+                        <p class="bg-main text-white fw-bold px-3" style="font-size: 30px;">Nov</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-8 col-lg-8 p-2 px-xl-3 container-fluid">
+                <div class="col-sm-12 col-md-8 col-lg-9 p-2 px-xl-3 container-fluid">
                     ${element.actividades.map((actividad, i) => {
                         return `<div class="row">
-                            <div class="col-sm-12 col-xl-4 d-flex align-items-center gap-2 py-1 fw-bold fs-5 position-relative">
+                            <div class="col-sm-12 col-xl-3 gap-2 py-1 fw-bold fs-5 position-relative" style="font-size: 20px;">
                                 ${i==1 ? `<div class="position-absolute top-0 bg-main" style="width: 40px; height: 10px; transform: translateY(-100%);"></div>` : ''}
                                 <i class="fa-solid fa-clock"></i>
                                 ${actividad.inicio} - ${actividad.fin}
                             </div>
-                            <div class="col-sm-12 col-xl-8">
+                            <div class="col-sm-12 col-xl-9" style="font-size: 20px;">
                                 <p class="fw-bold">${actividad.nombre}</p>
                                 <p>${actividad.detalles}</p>
                             </div>
