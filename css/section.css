@@ -60,6 +60,7 @@
     align-items: start;
     gap: 2rem;
     padding: 2rem 3rem;
+    height: 100%;
 }
 
 .agenda {
