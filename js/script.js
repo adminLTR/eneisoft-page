@@ -74,7 +74,7 @@ function fillSpeakers(speakers) {
                             ${speaker.nombres} ${speaker.apellidos}
                             <img width="30" height="30" src="https://img.icons8.com/color/48/${speaker.pais}.png" alt="${speaker.pais}-emoji"/>
                         </h5>
-                        <p style="font-size: 18px;" class="text-gray text-center my-3 flex-grow-1">${speaker.perfil}</p>
+                        <p style="font-size: 18px;" class="text-negro text-center my-3 flex-grow-1">${speaker.perfil}</p>
                         <div class="d-flex justify-content-center align-items-center gap-1">
                             ${Object.keys(speaker.social_media).map(social => {
                                 return `<a class="text-decoration-none" target="_blank" href="${speaker.social_media[social]}">
@@ -108,7 +108,7 @@ function fillAliados(aliados_sponsors) {
                     <h5 class="text-white d-flex justify-content-center align-items-center gap-2 fs-4 fw-bold text-nowrap">
                         <img src="./img/${element.type}s/${element.nombre.toLowerCase()}.png" height=70/>
                     </h5>
-                    <p class="text-gray py-2 mx-1 mx-lg-5 text-center" style="font-size: 18px;">
+                    <p class="text-negro py-2 mx-1 mx-lg-5 text-center" style="font-size: 18px;">
                         ${element.slogan}
                     </p>
                 </div>
@@ -158,7 +158,7 @@ function fillAgenda(agenda) {
                             </div>
                             <div class="col-sm-12 col-xl-9" style="font-size: 20px;">
                                 <p class="fw-bold">${actividad.nombre}</p>
-                                <p>${actividad.detalles}</p>
+                                <p class="text-negro">${actividad.detalles}</p>
                             </div>
                         </div>`
                     })}                    
@@ -168,7 +168,7 @@ function fillAgenda(agenda) {
         if (index!=agenda.length-1) {
             $("#agenda-container").append(`
                 <div class="container-fluid">
-                    <div class="square bg-main m-auto" style="width: 40px; height: 40px;"></div>
+                    <div class="square bg-black m-auto" style="width: 40px; height: 40px;"></div>
                 </div>
             `);
         }
@@ -187,7 +187,7 @@ function fillEventos(speakers, event) {
                             ${evento.exp.nombres} ${evento.exp.apellidos}
                             <img width="30" height="30" src="https://img.icons8.com/color/48/${evento.exp.pais}.png" alt="${evento.exp.pais}-emoji"/>
                         </h5>
-                        <p class="text-gray text-center my-3">${evento.exp.perfil}</p>
+                        <p class="text-negro text-center my-3">${evento.exp.perfil}</p>
                         <div class="d-flex justify-content-center align-items-center gap-1">
                             ${Object.keys(evento.exp.social_media).map(social => {
                                 return `<a class="text-decoration-none" href="${evento.exp.social_media[social]}">
@@ -200,7 +200,7 @@ function fillEventos(speakers, event) {
                     </div>
                     <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 d-flex flex-column align-items-start">
                         <h5 class="text-main fw-bold mb-4">${evento.nombre}</h5>
-                        <p class="mb-4">${evento.detalles}</p>
+                        <p class="mb-4 text-negro">${evento.detalles}</p>
                         <div class="text-main flex-grow-1">
                             <div class="d-flex gap-2 align-items-center">
                                 <i class="fa-solid fa-calendar"></i>
