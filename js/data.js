@@ -12,7 +12,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@flutterinastudio",
         },
         pais: "peru",
-        visible: true,
+        visible: false,
         talleres: [
         ],
         charlas: [
@@ -37,7 +37,7 @@ const speakers = [
             twitter: "https://twitter.com/javierblancoch",
         },
         pais: "peru",
-        visible: true,
+        visible: false,
         talleres: [
         ],
         charlas: [
@@ -63,7 +63,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@maybemarhs",
         },
         pais: "peru",
-        visible: true,
+        visible: false,
         talleres: [
         ],
         charlas: [
@@ -117,7 +117,7 @@ const speakers = [
             youtube: "https://www.youtube.com/@yasminacodes",
         },
         pais: "spain",
-        visible: true,
+        visible: false,
         talleres: [
         ],
         charlas: [
@@ -139,25 +139,25 @@ const aliados_sponsors = [
         type: 'aliado',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
-        visible: true,
+        visible: false,
     },
     {
         type: 'aliado',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
-        visible: true,
+        visible: false,
     },
     {
         type: 'sponsor',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
-        visible: true,
+        visible: false,
     },
     {
         type: 'sponsor',
         nombre: 'Google',
         slogan: 'Ing. de Software UNMSM CEO de Tortuga & Caballo Inc.',
-        visible: true,
+        visible: false,
     },
 
 ]
