@@ -13,16 +13,28 @@ password = 'Eneisoft2024'  # Reemplaza con la contraseña del correo oficial
 # Plantilla del correo
 def generar_mensaje(nombre, premio, auspiciado, correo_auspiciado):
     return f"""
-Estimado {nombre},
-
-Nos dirigimos a ti para confirmar los detalles del premio {premio} que ganaste, auspiciado por {auspiciado} y sorteado durante el evento ENEISOFT 2024. 🎉
-Para hacer efectivo tu premio, hemos enviado tus datos a {auspiciado} ({correo_auspiciado}). Por favor, comunícate con ellos directamente para coordinar los pasos necesarios.
-Si tienes alguna pregunta o necesitas más información adicional, no dudes en contactarnos en eneisoft.pe@gmail.com o por teléfono al 941 831 923.
-¡Felicitaciones nuevamente, {nombre}! 🎓 Nos alegra acompañarte en este importante paso de tu formación profesional.
-
-Atentamente,
-Equipo Organizador ENEISOFT 2024
-eneisoft.pe@gmail.com
+<html>
+    <body>
+        <p>Estimado <strong>{nombre}</strong>,</p>
+        <p>
+            Nos dirigimos a ti para confirmar los detalles del premio <strong>{premio}</strong> que ganaste,
+            auspiciado por <strong>{auspiciado}</strong> y sorteado durante el evento ENEISOFT 2024. 🎉
+        </p>
+        <p>
+            Para hacer efectivo tu premio, hemos enviado tus datos a <strong>{auspiciado}</strong> 
+            (<a href="mailto:{correo_auspiciado}">{correo_auspiciado}</a>).
+            Por favor, comunícate con ellos directamente para coordinar los pasos necesarios.
+        </p>
+        <p>
+            Si tienes alguna pregunta o necesitas más información adicional, no dudes en contactarnos en 
+            <a href="mailto:eneisoft.pe@gmail.com">eneisoft.pe@gmail.com</a> o por teléfono al 941 831 923.
+        </p>
+        <p>
+            ¡Felicitaciones nuevamente, <strong>{nombre}</strong>! 🎓 Nos alegra acompañarte en este importante paso de tu formación profesional.
+        </p>
+        <p>Atentamente,<br>Equipo Organizador ENEISOFT 2024<br>eneisoft.pe@gmail.com</p>
+    </body>
+    </html>
 """
 
 # Envío de correos electrónicos
@@ -32,7 +44,7 @@ def enviar_correo(destinatario, nombre, premio, auspiciado, correo_auspiciado):
     mensaje['To'] = destinatario
     mensaje['Subject'] = "🎉 ¡Ganadores de las Becas en ENEISOFT 2024!"
     cuerpo = generar_mensaje(nombre, premio, auspiciado, correo_auspiciado)
-    mensaje.attach(MIMEText(cuerpo, 'plain'))
+    mensaje.attach(MIMEText(cuerpo, 'html'))
 
     try:
         with smtplib.SMTP(smtp_server, smtp_port) as server:
