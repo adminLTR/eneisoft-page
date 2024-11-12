@@ -7,8 +7,8 @@ import time
 # Configuración de SMTP
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
-eneisoft_email = 'eneisoft.pe@gmail.com'  # Reemplaza por el email oficial de ENEISOFT
-password = 'Eneisoft2024'  # Reemplaza con la contraseña del correo oficial
+eneisoft_email = 'joselatorre143351@gmail.com'  # Reemplaza por el email oficial de ENEISOFT
+password = 'zlfi vlub vtfb nfbt'  # Reemplaza con la contraseña del correo oficial
 
 # Plantilla del correo
 def generar_mensaje(nombre, premio, auspiciado, correo_auspiciado):
