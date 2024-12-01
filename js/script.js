@@ -63,8 +63,19 @@ $(document).ready(function () {
 
 function fillSpeakers(speakers) {
     var cont = 0;
-    speakers.forEach(function (speaker, index) {
-        if (speaker.visible) {
+    speakers.forEach(function (speaker) {
+        const events = [...speaker.talleres, ...speaker.charlas];
+        const today = new Date();
+        let visible = false;
+
+        for (let i = 0; i < events.length; i++) {
+            const date = new Date(events[i].publicacion);
+            if (date <= today) {
+                visible = true;
+                break;
+            }
+        }
+        if (visible) {
             cont++;
             $("#speakers-container").append(`
                 <div class="col-sm-12 col-md-6 p-3 p-md-5">
@@ -104,9 +115,9 @@ function fillAliados(aliados_sponsors) {
     aliados_sponsors.forEach(element => {
         if (element.visible) {
             $(`#${element.type}s-container`).append(`<div class="col-sm-12 col-md-6 col-lg-4 p-2 py-md-5 px-md-2">
-                <div class="text-center px-2 py-4 bg-white">
-                    <h5 class="text-white d-flex justify-content-center align-items-center gap-2 fs-4 fw-bold text-nowrap">
-                        <img src="./img/${element.type}s/${element.nombre.toLowerCase()}.png" height=70/>
+                <div class="text-center px-2 py-4 bg-white h-100 d-flex flex-column">
+                    <h5 class="text-white d-flex justify-content-center align-items-center gap-2 fs-4 fw-bold text-nowrap flex-grow-1">
+                        <img src="./img/${element.type}s/${sneakString(element.nombre.toLowerCase())}.png" height=250/>
                     </h5>
                     <p class="text-negro py-2 mx-1 mx-lg-5 text-center" style="font-size: 18px;">
                         ${element.slogan}
@@ -157,18 +168,18 @@ function fillAgenda(agenda) {
                                 ${actividad.inicio} - ${actividad.fin}
                             </div>
                             <div class="col-sm-12 col-xl-9" style="font-size: 20px;">
-                                <p class="fw-bold">${actividad.nombre}</p>
+                                <p class="fw-bold">${actividad.nombre} por <span class="text-pink">${actividad.exp.nombres} ${actividad.exp.apellidos}</span></p>
                                 <p class="text-negro">${actividad.detalles}</p>
                             </div>
                         </div>`
-                    })}                    
+                    }).toString().replace(/,/g, '')}                    
                 </div>
             </div>
         </div>`)
         if (index!=agenda.length-1) {
             $("#agenda-container").append(`
                 <div class="container-fluid">
-                    <div class="square bg-black m-auto" style="width: 40px; height: 40px;"></div>
+                    <div class="square bg-main m-auto" style="width: 40px; height: 40px;"></div>
                 </div>
             `);
         }
@@ -178,9 +189,9 @@ function fillAgenda(agenda) {
 function fillEventos(speakers, event) {
     const fechas = formatearActividades(speakers, event);
     fechas.forEach((fecha) => {
-        fecha.actividades.forEach(evento=>{
+        fecha.actividades.forEach((evento, index)=>{
             $(`#${event}-container`).append(`
-                <div class="row agenda p-3 py-md-4 mb-3 mb-md-5">
+                <div class="row agenda p-3 py-md-4 mb-3 mb-md-5" id="${sneakString(evento.nombre)}">
                     <div class="col-sm-12 col-md-6 py-3 py-md-0 px-md-4 day-agenda">
                         <img src="./img/speakers/${formatSpeakerName(evento.exp.nombres, evento.exp.apellidos)}" width=150 alt="user" class="img-fluid rounded-circle d-block m-auto">                            
                         <h5 class="my-3 text-main fw-bold d-flex align-items-center justify-content-center gap-2">
@@ -190,7 +201,7 @@ function fillEventos(speakers, event) {
                         <p class="text-negro text-center my-3">${evento.exp.perfil}</p>
                         <div class="d-flex justify-content-center align-items-center gap-1">
                             ${Object.keys(evento.exp.social_media).map(social => {
-                                return `<a class="text-decoration-none" href="${evento.exp.social_media[social]}">
+                                return `<a class="text-decoration-none" target="_blank" href="${evento.exp.social_media[social]}">
                                     <div class="social-media media-speaker bg-main text-white fs-6">
                                         <i class="fa-brands fa-${social}"></i>
                                     </div>
@@ -215,7 +226,7 @@ function fillEventos(speakers, event) {
                                 ${evento.lugar}
                             </div>
                         </div>
-                        <a href="#" class="btn btn-main my-3 py-1 px-5 rounded rounded-pill">Inscribirme</a>
+                        <a target="_blank" href="${evento.link}" class="btn btn-main my-3 py-1 px-5 rounded rounded-pill">Inscribirme</a>
                     </div>
                 </div>    
             `);
@@ -225,7 +236,11 @@ function fillEventos(speakers, event) {
 }
 
 function formatSpeakerName(name, surname) {
-    return name.toLowerCase() + "_" + surname.toLowerCase() + ".png"
+    return name.toLowerCase().replaceAll(' ', '_') + "_" + surname.replaceAll(' ', '_').toLowerCase() + ".png"
+}
+
+function sneakString(str) {
+    return str.toLowerCase().replaceAll(' ', '_')
 }
 
 const formatearActividades = (expositores, evento=null) => {
@@ -234,21 +249,22 @@ const formatearActividades = (expositores, evento=null) => {
 
     // Recorremos todos los expositores
     expositores.forEach((expositor) => {
-        if (expositor.visible) {
-            // Recorremos las actividades (talleres y charlas)
-            let actividades;
-            if (!evento) {
-                actividades = [...expositor.talleres, ...expositor.charlas];
+        // Recorremos las actividades (talleres y charlas)
+        let actividades;
+        if (!evento) {
+            actividades = [...expositor.talleres, ...expositor.charlas];
+            cont++;
+        } else {
+            actividades = [...expositor[evento]];
+            if (expositor[evento].length !== 0) {
                 cont++;
-            } else {
-                actividades = [...expositor[evento]];
-                if (expositor[evento].length !== 0) {
-                    cont++;
-                }
             }
-    
-            actividades.forEach((actividad) => {
-                const { dia, inicio, fin, nombre, detalles, lugar } = actividad;
+        }
+
+        actividades.forEach((actividad) => {
+            if (new Date(actividad.publicacion) <= new Date()) {
+                const { dia, inicio, fin, nombre, detalles, lugar, link } = actividad;
+                const tipo = expositor.talleres.includes(actividad) ? "workshops" : "keynotes";
     
                 // Si el día no existe en el objeto, lo creamos
                 if (!actividadesPorDia[dia]) {
@@ -260,12 +276,12 @@ const formatearActividades = (expositores, evento=null) => {
                     perfil: expositor.perfil,
                     social_media: expositor.social_media,
                     pais: expositor.pais,
-                    visible: expositor.visible,
                 }
                 // Añadimos la actividad al día correspondiente
-                actividadesPorDia[dia].push({ inicio, fin, nombre, detalles, lugar, exp });
-            });
-        }
+                actividadesPorDia[dia].push({ inicio, fin, nombre, detalles, lugar, link, tipo, exp });
+            }
+        });
+        
     });
     if (cont === 0 && evento==null) {
         $("#agenda, .agenda-link").addClass("d-none");
@@ -298,29 +314,29 @@ const formatearActividades = (expositores, evento=null) => {
 
 const formatearEventos = (actividadesPorDia, anio='2024', mes='11') => {
     // para el calendario
-    const eventos = [];
+    const eventos = [...eventos_programados]
 
     actividadesPorDia.forEach((diaObj) => {
         const dia = diaObj.dia;
         diaObj.actividades.forEach((actividad) => {
-            const { nombre, inicio, fin, detalles } = actividad;
+            const { nombre, inicio, fin, exp, tipo } = actividad;            
 
             eventos.push({
                 title: nombre,
                 start: `${anio}-${mes}-${dia}T${inicio}:00`,
                 end: `${anio}-${mes}-${dia}T${fin}:00`,
                 extendedProps: {
-                    description: detalles,
+                    description: `<a class="link-horario" href="/${tipo}"><b>${nombre}<b> por <b>${exp.nombres} ${exp.apellidos}<b>. </br> ${inicio} - ${fin}</a>`,
                 },
             });
         });
     });
 
+
     return eventos;
 };
 
 function calendar(eventos) {
-    console.log(formatearEventos(eventos))
     var elementCalendar = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(elementCalendar, {
         locale: 'es',
@@ -335,6 +351,8 @@ function calendar(eventos) {
           start: '2024-11-03',
           end: '2024-11-10'
         },
+        slotMinTime: '06:00:00', // Empieza a las 8:00 AM
+        slotMaxTime: '23:59:59',
         allDaySlot: false,
         dayHeaderFormat: { 
             weekday: 'long',  // Día completo (Lunes, Martes, etc.)
@@ -346,7 +364,40 @@ function calendar(eventos) {
             year: 'numeric',  // Año numérico completo
             month: 'long'     // Nombre completo del mes
           },
+        eventContent: function(info) {
+            return { 
+                html: `<div class="text-ellipsis">${info.event.extendedProps.description}</div>`
+            };
+        },
+        slotLabelFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false // Para el formato 24 horas
+          },
         events: formatearEventos(eventos),
       });
       calendar.render()
+      coloresCalendar();
+}
+
+function coloresCalendar() {
+    $(".fc-v-event").each(function (index) {
+        var nieto = $(this).children().children().children('.link-horario'); // Hijo de hijo con clase 'x'
+
+        if (nieto.length > 0) {  // Verificamos que el nieto exista
+            // Obtenemos el valor del atributo que te interesa (por ejemplo, 'data-valor')
+            var valor = nieto.attr('href');
+            
+            // Dependiendo del valor del atributo, agregamos una clase al abuelo
+            if (valor.includes("keynotes")) {
+                $(this).addClass('bg-yellow'); // Agrega clase al abuelo
+            } else if (valor.includes("workshops")) {
+                $(this).addClass('bg-pink'); // Agrega clase al abuelo
+            } else if (valor.includes("hackathon")) {
+                $(this).addClass('bg-main'); // Agrega clase al abuelo
+            } else if (valor.includes("programacion-competitiva")) {
+                $(this).addClass('bg-sky'); // Agrega clase al abuelo
+            }
+        }
+    })
 }

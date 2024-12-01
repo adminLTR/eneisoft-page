@@ -16,4 +16,61 @@
 
 .content-calendar {
     min-width: 900px;
+    padding: 2rem;
+}
+
+.fc-event-title-container {
+    white-space: normal !important;
+}
+
+.fc-timegrid-event, .fc-event-main {
+    height: auto !important;
+    min-height: 40px;
+    overflow: visible !important;
+}
+
+.fc-col-header-cell{
+    background-color: var(--main);
+    color: white;
+}
+.fc-col-header-cell * {
+    color: white;
+    text-decoration: none;
+}
+
+.fc-event-title-container{
+    margin: 0.5rem;
+}
+
+.fc-event-main{
+    /* background-color: var(--main); */
+    font-size: 10px;
+}
+
+.fc-event-title{ /* Varias líneas */
+    white-space: normal;
+}
+
+.fc-license-message {
+    display: none;
+}
+.fc-v-event {
+    border: 0 !important;
+    transition: all ease-in-out .1s;
+    padding: .2rem;
+    white-space: normal; /* Evita el salto de línea */
+    overflow: hidden !important; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis !important;
+}
+.fc-v-event:hover {
+    filter: brightness(1.1);
+}
+.link-horario {
+    color: white;
+    text-decoration: none;
+    transition: all ease-in-out .1s;
+}
+.link-horario:hover {
+    cursor: pointer;
+    color: white;
 }
